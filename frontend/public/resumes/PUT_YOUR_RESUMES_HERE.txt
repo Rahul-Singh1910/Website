@@ -1,0 +1,5 @@
+Drop your two resume PDFs in this folder, named exactly:
+  rahul-singh-fintech.pdf
+  rahul-singh-it-services.pdf
+
+The "Resume" section download buttons on the site link directly to these filenames.

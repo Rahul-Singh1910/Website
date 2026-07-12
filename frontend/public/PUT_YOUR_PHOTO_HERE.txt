@@ -1,0 +1,4 @@
+Drop your photo in this folder and name it exactly: profile.jpg
+
+That's it - the site will automatically pick it up.
+If no photo is added, the site shows your initials "RS" instead.

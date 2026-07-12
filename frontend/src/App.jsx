@@ -1,0 +1,76 @@
+import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import ProjectsList from "./components/ProjectsList";
+import ContactForm from "./components/ContactForm";
+import Ticker from "./components/Ticker";
+import HeroChart from "./components/HeroChart";
+import Experience from "./components/Experience";
+import Resume from "./components/Resume";
+import Social from "./components/Social";
+import ProfilePhoto from "./components/ProfilePhoto";
+import AmbientBackground from "./components/AmbientBackground";
+import ParticleNetwork from "./components/ParticleNetwork";
+import About from "./components/About";
+import Education from "./components/Education";
+import NavBar from "./components/NavBar";
+import RotatingTitle from "./components/RotatingTitle";
+import Reveal from "./components/Reveal";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
+import { logVisit } from "./api";
+
+function Home() {
+  useEffect(() => {
+    logVisit("/").catch(() => {});
+  }, []);
+
+  return (
+    <div className="home" id="top">
+      <NavBar />
+      <header className="hero">
+        <HeroChart />
+        <div className="hero-content">
+          <ProfilePhoto />
+          <RotatingTitle />
+          <h1>Rahul Singh</h1>
+          <p>Data Analyst and software professional turning raw data into clear, actionable insights through Python, SQL, Power BI and a builder's mindset.</p>
+          <Social />
+        </div>
+      </header>
+      <Ticker />
+      <Reveal><About /></Reveal>
+      <Reveal><Experience /></Reveal>
+      <Reveal><Education /></Reveal>
+      <Reveal><ProjectsList /></Reveal>
+      <Reveal><Resume /></Reveal>
+      <Reveal>
+        <section className="contact-details" id="contact">
+          <h2>Contact details</h2>
+          <div className="contact-details-card">
+            <ul>
+              <li><strong>Email:</strong> <a href="mailto:rahulsingh19.ind@gmail.com">rahulsingh19.ind@gmail.com</a></li>
+              <li><strong>Phone:</strong> <a href="tel:+916290516034">+91 6290516034</a></li>
+              <li><strong>Location:</strong> Kolkata, West Bengal, India</li>
+            </ul>
+            <Social compact />
+          </div>
+        </section>
+      </Reveal>
+      <Reveal><ContactForm /></Reveal>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <>
+      <AmbientBackground />
+      <ParticleNetwork />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+      </Routes>
+    </>
+  );
+}
